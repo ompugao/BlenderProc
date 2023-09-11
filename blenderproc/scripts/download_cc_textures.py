@@ -92,8 +92,8 @@ def cli():
 
         if download_assets:
             # the asset should be downloaded and has not been downloaded yet
-            print(f"Download asset: {asset} of {index}/{len(data)}")
-            response = requests.get(link, headers=headers, timeout=30)
+            link = link.replace('/download', '/download/')
+            print(f"Download asset: {asset} of {index}/{len(data)}, from {link}")
             SetupUtility.extract_from_response(current_folder, response)
 
     print(f"Done downloading textures, saved in {cc_texture_dir}")
